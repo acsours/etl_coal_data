@@ -1,5 +1,16 @@
 What about the load part? Do we need to normalize or put in a snowflake schema
+	A: decide on a shape and document reasoning. 
 
-what do we want?
+
+Questions we want to answer:
 	-is there a measurable change in health effects as regions move from coal to renewables? 
 	-coal fired power plants, where are they decreasing? staying the same? 
+	
+Extract: 
+	Need to identify the change in coal power generation year-over-year, by country. Change being defined as new capacity less retired capacity in megawatts (MW)
+	Found reports that are useful here: https://globalenergymonitor.org/projects/global-coal-plant-tracker/summary-data/
+		-New coal plants: https://docs.google.com/spreadsheets/d/1W3pt5FhqitHwbVWvvgfRr0S6QfqfOuea9pt3-Mlxp5M/
+		-Retiring coal plants: https://docs.google.com/spreadsheets/d/1xUOYq8tUZi2dcHLRZ3W1viZHyGgUlbrMxG5xIXyTOug/
+
+Transform: Data cleaning and shaping done in jupyter. See notebook "Project_2_ETL_process.ipnyb" - for details. 
+				-Issue: Some of the retired capacity is undated. After discussion with team we reached consensus to assign the undated to 2020, because we know it was at least retired by 2020 since that is the scope of the reports
