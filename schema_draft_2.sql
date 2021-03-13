@@ -19,11 +19,11 @@ DROP TABLE IF EXISTS air_quality;
 CREATE TABLE air_quality (
     alpha_3 varchar NOT NULL,
     year int,
-    Value_PM float,
-    Value_MR float,
-    Value_CO2 float,
-    Value_NOx float,
-    Value_SOx float,
+    "Value_PM" float,
+    "Value_MR" float,
+    "Value_CO2" float,
+    "Value_NOx" float,
+    "Value_SOx" float,
 	FOREIGN KEY (alpha_3) REFERENCES country(alpha_3)
 	);
 
@@ -36,9 +36,9 @@ CREATE TABLE coal_plants (
     country varchar(200),
 	alpha_3 varchar,
     year int,
-    MW_retired int,
-    MW_added int,
-    yearly_change int,
+    coal_mw_new int,
+    coal_mw_retired int,
+    coal_mw_change int,
 	FOREIGN KEY (alpha_3) REFERENCES country(alpha_3)
 	);
 
@@ -47,13 +47,15 @@ select * from coal_plants;
 DROP TABLE IF EXISTS mortality_rates;
 
 CREATE TABLE mortality_rates (
-    country varchar(200),
+    Country varchar(200),
     alpha_3 varchar NOT NULL,
-    year int,
-    "Outdoor particulate matter (deaths per 100,000)" float,
-    "Outdoor ozone pollution (deaths per 100,000)" float,
+    Year int,
+    "Outdoor particulate matter_deaths per 100k" float,
+    "Outdoor ozone pollution_deaths per 100k" float,
 	FOREIGN KEY (alpha_3) REFERENCES country(alpha_3)
 
 );
 
 select * from mortality_rates;
+
+select * from air_quality;
