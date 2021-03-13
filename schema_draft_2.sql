@@ -1,4 +1,4 @@
-drop table if exists country;
+drop table if exists country cascade;
 
 CREATE TABLE country (
     country_id int primary key NOT NULL,
@@ -53,8 +53,8 @@ CREATE TABLE mortality_rates (
     country varchar(200) NOT NULL,
     country_code varchar(200),
     year int,
-    deaths_total_air_pollution int,
-    deaths_outdoor_air_pollution int,
+--    deaths_total_air_pollution int,
+    deaths_outdoor_particulate_matter int,
     deaths_ozone_pollution int,
     region varchar(200),
 	FOREIGN KEY (country) REFERENCES country(name),
