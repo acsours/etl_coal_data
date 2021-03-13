@@ -17,14 +17,14 @@ select * from country;
 DROP TABLE IF EXISTS air_quality;
 
 CREATE TABLE air_quality (
-    LOCATION varchar(200)NOT NULL,
-    TIME int,
-    Value_PM int,
-    Value_MR int,
-    Value_CO2 int,
-    Value_NOx int,
-    Value_SOx int,
-	FOREIGN KEY (LOCATION) REFERENCES country(alpha_3)
+    alpha_3 varchar NOT NULL,
+    year int,
+    Value_PM float,
+    Value_MR float,
+    Value_CO2 float,
+    Value_NOx float,
+    Value_SOx float,
+	FOREIGN KEY (alpha_3) REFERENCES country(alpha_3)
 	);
 --add country_id?
 
@@ -34,14 +34,14 @@ select * from air_quality;
 DROP TABLE IF EXISTS coal_plants;
 
 CREATE TABLE coal_plants (
-    -- is this a foreign key?
     country varchar(200),
+	alpha_3 varchar,
     -- is this a foreign key?
     year int,
     MW_retired int,
     MW_added int,
     yearly_change int,
-	FOREIGN KEY (country) REFERENCES country(alpha_3)
+	FOREIGN KEY (alpha_3) REFERENCES country(alpha_3)
 	);
 
 select * from coal_plants;
@@ -49,16 +49,12 @@ select * from coal_plants;
 DROP TABLE IF EXISTS mortality_rates;
 
 CREATE TABLE mortality_rates (
-    -- entity?
-    country varchar(200) NOT NULL,
-    country_code varchar(200),
+    country varchar(200),
+    alpha_3 varchar NOT NULL,
     year int,
---    deaths_total_air_pollution int,
-    deaths_outdoor_particulate_matter int,
-    deaths_ozone_pollution int,
-    region varchar(200),
-	FOREIGN KEY (country) REFERENCES country(name),
-	FOREIGN KEY (country_code) REFERENCES country(alpha_3)
+    "Outdoor particulate matter (deaths per 100,000)" float,
+    "Outdoor ozone pollution (deaths per 100,000)" float,
+	FOREIGN KEY (alpha_3) REFERENCES country(alpha_3)
 
 );
 
