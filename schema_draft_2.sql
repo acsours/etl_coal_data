@@ -1,15 +1,15 @@
 drop table if exists country cascade;
 
 CREATE TABLE country (
-    country_id int primary key NOT NULL,
-    name varchar unique NOT NULL,
-    alpha_2 varchar unique NOT NULL,
-    alpha_3 varchar unique NOT NULL,
-    country_code varchar unique NOT NULL,
-    region varchar NOT NULL,
-    sub_region varchar NOT NULL,
-    region_code int  NOT NULL,
-    sub_region_code int NOT NULL);
+    country_id serial primary key,
+    name varchar unique,
+    alpha_2 varchar unique,
+    alpha_3 varchar unique,
+    country_code varchar unique,
+    region varchar,
+    sub_region varchar,
+    region_code int,
+    sub_region_code int);
 	
 select * from country;
 	
@@ -26,7 +26,6 @@ CREATE TABLE air_quality (
     Value_SOx float,
 	FOREIGN KEY (alpha_3) REFERENCES country(alpha_3)
 	);
---add country_id?
 
 select * from air_quality;
 
@@ -36,7 +35,6 @@ DROP TABLE IF EXISTS coal_plants;
 CREATE TABLE coal_plants (
     country varchar(200),
 	alpha_3 varchar,
-    -- is this a foreign key?
     year int,
     MW_retired int,
     MW_added int,
