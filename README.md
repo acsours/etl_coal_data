@@ -39,3 +39,4 @@ The data cleaning and shaping were performed in Jupyter Notebook by using Pandas
 
 ### Load:
 The final data was loaded into PostgreSQL database by using SQLAlchemy. We decided to use a relational database to maintain data integrity, optimize data storage by normalizing the data to related tables for futere flexibility and comparisons between the data.
+
