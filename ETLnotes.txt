@@ -1,0 +1,5 @@
+What about the load part? Do we need to normalize or put in a snowflake schema
+
+what do we want?
+	-is there a measurable change in health effects as regions move from coal to renewables? 
+	-coal fired power plants, where are they decreasing? staying the same? 
