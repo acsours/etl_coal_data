@@ -12,5 +12,10 @@ Extract:
 		-New coal plants: https://docs.google.com/spreadsheets/d/1W3pt5FhqitHwbVWvvgfRr0S6QfqfOuea9pt3-Mlxp5M/
 		-Retiring coal plants: https://docs.google.com/spreadsheets/d/1xUOYq8tUZi2dcHLRZ3W1viZHyGgUlbrMxG5xIXyTOug/
 
-Transform: Data cleaning and shaping done in jupyter. See notebook "Project_2_ETL_process.ipnyb" - for details. 
-				-Issue: Some of the retired capacity is undated. After discussion with team we reached consensus to assign the undated to 2020, because we know it was at least retired by 2020 since that is the scope of the reports
+Transform: Data cleaning and shaping done in jupyter. See notebook "coal_metrics_transform.ipnyb" - for details. 
+				-Issue: Some of the retired capacity is undated. 
+					-Decision: After discussion with team we reached consensus to assign the undated to 2020, because we know it was at least retired by 2020.
+					Sub-issue: numeric columns come in as str (object) data type from CSV files, and source file had thousands separator as a comma.
+						-Resolution: use looping to strip commas from columns that need to be numeric, and cast the results as int.
+				
+				-Issue: mis-matches in country names compared to lookup table. This is due to different formats (e.g., 'North Korea' vs. 'Korea, Republic of'), abbreviations in country names, and character set (diacriticals in lookup table but not in coal capacity data. Scrubbed dataframes for mis-match and manually corrected in Jupyter NB
